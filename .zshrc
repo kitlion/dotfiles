@@ -1,4 +1,8 @@
+# Add this line into ~/.zshrc
+# [[ -f ~/.dotfiles/.zshrc ]] && source ~/.dotfiles/.zshrc
 
+# My Alias
+[[ -f ~/.dotfiles/alias/alias.sh ]] && source ~/.dotfiles/alias/alias.sh
 
 # Customize PROMPT
 if [[ $ZSH_THEME == "robbyrussell" ]]; then
