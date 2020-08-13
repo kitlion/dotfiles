@@ -23,3 +23,14 @@ nnoremap <silent> <Leader>v :NERDTreeFind<CR>
 
 " Ignore FZF search .gitignore list files
 nnoremap <expr> <C-p> (len(system('git rev-parse')) ? ':Files' : ':GFiles --exclude-standard --others --cached')."\<cr>"
+
+" Conditional Settings
+if has("unix")
+    if has("mac")
+        " echo "MacOS"
+    else
+        " echo "linux, bsd, etc."
+    endif
+elseif has('win32') || has('win64')
+    " echo "Windows"
+endif
