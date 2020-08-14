@@ -14,6 +14,18 @@ git clone https://github.com/kitlion/dotfiles ~/.dotfiles/
 
 ~/.dotfiles/bootstrap.sh
 ```
+Choose 1
+
+Run again
+```
+~/.dotfiles/bootstrap.sh
+```
+Choose 2 and then 3, and 0 to Exit
+
+Final step
+```
+source .zshrc
+```
 
 ### Manual
 ```
