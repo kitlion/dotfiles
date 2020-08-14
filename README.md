@@ -1,14 +1,13 @@
 # My Favorite dotfiles
 
-## Rerequisites
+## What will be install? 
 https://ohmyz.sh/
+
+https://github.com/zsh-users/zsh-autosuggestions
 
 https://github.com/junegunn/vim-plug
 
-
-
 ## How to install
-### Automate
 ```
 git clone https://github.com/kitlion/dotfiles ~/.dotfiles/
 
@@ -27,15 +26,6 @@ Final step
 source .zshrc
 ```
 
-### Manual
-```
-git clone https://github.com/kitlion/dotfiles ~/.dotfiles/
-
-echo "[[ -f ~/.dotfiles/.zshrc ]] && source ~/.dotfiles/.zshrc" >> ~/.zshrc
-
-source ~/.zshrc
-※ Follow instrction
-```
 
 ## Others
 If display as not expect, install these fonts
