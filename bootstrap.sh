@@ -101,9 +101,12 @@ install_ohmyzsh_conf()
         if [[ ! -d ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions ]]; then
             git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
         fi
+        if [[ ! -d ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting ]]; then
+            git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+        fi
 
         send_message "Updating plugins list..."
-        plugins="git rsync zsh-autosuggestions zsh_reload"
+        plugins="git rsync zsh-autosuggestions zsh-syntax-highlighting zsh_reload"
         sed -i -e "s/plugins=(.*)/plugins=($plugins)/g" ~/.zshrc
         send_message "Finished updating plugins list."
         sleep 2
