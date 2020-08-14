@@ -1,6 +1,6 @@
 #! /bin/bash
 
-DF=$HOME"/"$(dirname "${BASH_SOURCE}")
+DF=$(dirname `which $0`)
 VIM_FILE="/.vimrc"
 VIM_CONFIG=$HOME$VIM_FILE
 
@@ -32,9 +32,16 @@ send_message()
     progress
 }
 
-
 # Change default SHELL
-change_shell() {
+change_shell()
+{
+    if [[ ! $(grep /zsh$ /etc/shells) ]]; then
+        send_message "Start installing Zsh."
+        yum install -y zsh
+        send_message "Zsh installed successfully"
+    else
+        send_message "Zsh are installed already."
+    fi
     if [[ $SHELL != $(which zsh) ]]; then
         chsh -s $(which zsh) $(whoami)
         send_message "Zsh is default shell now. Exit and open your terminal again."
@@ -47,12 +54,12 @@ change_shell() {
 install_ohmyzsh() {
     if [[ ! -d ~/.oh-my-zsh ]]; then
         send_message "Start installing Oh-My-Zsh..."
-        progress
         $(which bash) -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
     fi
 }
 
-install_ohmyzsh_conf() {
+install_ohmyzsh_conf()
+{
     if [[ -f ~/.zshrc ]]; then
         send_message "Start settings configurations for Oh-My-Zsh..."
         CONFIG="[[ -f ~/.dotfiles/.zshrc ]] && source ~/.dotfiles/.zshrc"
@@ -68,23 +75,8 @@ install_ohmyzsh_conf() {
     fi
 }
 
-install_vim_plug() {
-    if [[ ! -f ~/.vim/autoload/plug.vim ]]; then
-        $(which curl) -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-        # install plugin
-        $(which vim) -u ~/.vimrc -i NONE -c "PlugInstall" -c "qa"
-    fi
-}
-
-# Vim folder
-vim_folder() {
-    [[ ! -d ~/.vim/backups ]] && mkdir -p ~/.vim/backups
-    [[ ! -d ~/.vim/swaps ]] && mkdir -p ~/.vim/swaps
-    [[ ! -d ~/.vim/undo ]] && mkdir -p ~/.vim/undo
-    send_message "VIM's temporary folder are created."
-}
-
-install_vim_conf() {
+install_vim_conf()
+{
     if [[ -L "$VIM_CONFIG" ]]; then # Symbolic link
         unlink $VIM_CONFIG
         ln -s ${DF}$VIM_FILE $VIM_CONFIG
@@ -97,17 +89,37 @@ install_vim_conf() {
     send_message "VIM configurations installed successfully."
 }
 
+install_vim_plug()
+{
+    if [[ ! -f ~/.vim/autoload/plug.vim ]]; then
+        $(which curl) -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+    fi
+    send_message "Start installing VIM's Plugin..."
+    $(which vim) -u ~/.vimrc -i NONE -c "PlugInstall" -c "qa"
+}
+
+# Vim folder
+vim_folder()
+{
+    [[ ! -d ~/.vim/backups ]] && mkdir -p ~/.vim/backups
+    [[ ! -d ~/.vim/swaps ]] && mkdir -p ~/.vim/swaps
+    [[ ! -d ~/.vim/undo ]] && mkdir -p ~/.vim/undo
+    send_message "VIM's temporary folder are created."
+}
+
 all_ohmyzsh()
 {
     install_ohmyzsh
     install_ohmyzsh_conf
 }
+
 all_vim()
 {
+    install_vim_conf
     install_vim_plug
     vim_folder
-    install_vim_conf
 }
+
 all()
 {
     change_shell
