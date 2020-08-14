@@ -87,6 +87,9 @@ install_ohmyzsh_conf()
         send_message "Configurations installed successfully."
 
         # Plugins
+        send_message "Install additional plugins..."
+        git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+
         send_message "Updating plugins list..."
         plugins="git rsync zsh-autosuggestions zsh_reload"
         sed -i -e "s/plugins=(.*)/plugins=($plugins)/g" ~/.zshrc
