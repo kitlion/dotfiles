@@ -75,6 +75,16 @@ install_ohmyzsh_conf()
     fi
 }
 
+vim_folder()
+{
+    [[ ! -d ~/.vim/backups ]] && mkdir -p ~/.vim/backups
+    [[ ! -d ~/.vim/swaps ]] && mkdir -p ~/.vim/swaps
+    [[ ! -d ~/.vim/undo ]] && mkdir -p ~/.vim/undo
+    [[ ! -d ~/.vim/colors ]] && mkdir -p ~/.vim/colors
+    send_message "VIM's temporary folder are created."
+    cp ~/.vim/colors/monokai.vim ~/.vim/colors/
+}
+
 install_vim_conf()
 {
     if [[ -L "$VIM_CONFIG" ]]; then # Symbolic link
@@ -98,15 +108,6 @@ install_vim_plug()
     $(which vim) -u ~/.vimrc -i NONE -c "PlugInstall" -c "qa"
 }
 
-# Vim folder
-vim_folder()
-{
-    [[ ! -d ~/.vim/backups ]] && mkdir -p ~/.vim/backups
-    [[ ! -d ~/.vim/swaps ]] && mkdir -p ~/.vim/swaps
-    [[ ! -d ~/.vim/undo ]] && mkdir -p ~/.vim/undo
-    send_message "VIM's temporary folder are created."
-}
-
 all_ohmyzsh()
 {
     install_ohmyzsh
@@ -115,9 +116,9 @@ all_ohmyzsh()
 
 all_vim()
 {
+    vim_folder
     install_vim_conf
     install_vim_plug
-    vim_folder
 }
 
 all()
@@ -140,8 +141,8 @@ selection=
 until [ "$selection" = "0" ]; do
     echo "
     PROGRAM MENU
-    1 - Change default shell  to Zsh
-    2 - Install OhMyZsh
+    1 - Install OhMyZsh
+    2 - Install OhMyZsh Configs
     3 - Install Vim Plug
     4 - Install All In One
 
@@ -151,8 +152,8 @@ until [ "$selection" = "0" ]; do
     read selection
     echo ""
     case $selection in
-        1 ) clear; change_shell ;;
-        2 ) clear; all_ohmyzsh ;;
+        1 ) clear; install_ohmyzsh ;;
+        2 ) clear; install_ohmyzsh_conf ;;
         3 ) clear; all_vim ;;
         4 ) clear; all ;;
         0 ) exit ;;
