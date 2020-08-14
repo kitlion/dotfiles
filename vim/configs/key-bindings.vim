@@ -1,7 +1,7 @@
 " Global
 map <C-F10> :Breakpoint<cr>
 map <C-p> :Files<CR>
-map ; :Buffers<CR>
+"map ; :Buffers<CR>
 
 " Split Screen
 nnoremap <Leader>\ :vsplit<CR>
