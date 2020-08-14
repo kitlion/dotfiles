@@ -7,8 +7,12 @@ let NERDTreeIgnore=['\.swp$', '\~$', 'node_modules']
 let NERDTreeShowHidden=1
 
 autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 
+" Always open NERDTree with VIM
+"autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+
+
+" Key Shortcut Remind "
 "Ctrl+ww cycle though all windows
 "Ctrl+wh takes you left a window
 "Ctrl+wj takes you down a window
