@@ -52,6 +52,13 @@ change_shell()
 }
 
 install_ohmyzsh() {
+    if [[ ! $(grep /zsh$ /etc/shells) ]]; then
+        send_message "Start installing Zsh..."
+        yum install -y zsh
+        send_message "Zsh installed successfully."
+    else
+        send_message "Zsh are installed already."
+    fi
     if [[ ! -d ~/.oh-my-zsh ]]; then
         send_message "Start installing Oh-My-Zsh..."
         $(which bash) -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
@@ -66,13 +73,14 @@ install_ohmyzsh_conf()
         if (( ! $(cat ~/.bashrc | grep "$CONFIG" | wc -l) > 0 ))
         then
             echo $CONFIG >> ~/.zshrc
-            source ~/.zshrc
+            # source ~/.zshrc
             send_message "Configurations installed successfully."
         else
             send_message "Configurations already exists."
         fi
         sleep 2
     fi
+    cp ~/.dotfiles/zsh/custom/themes/bullet-train.zsh-theme ~/.oh-my-zsh/custom/themes/
 }
 
 vim_folder()
@@ -82,7 +90,7 @@ vim_folder()
     [[ ! -d ~/.vim/undo ]] && mkdir -p ~/.vim/undo
     [[ ! -d ~/.vim/colors ]] && mkdir -p ~/.vim/colors
     send_message "VIM's temporary folder are created."
-    cp ~/.vim/colors/monokai.vim ~/.vim/colors/
+    cp ~/.dotfiles/vim/colors/monokai.vim ~/.vim/colors/
 }
 
 install_vim_conf()
