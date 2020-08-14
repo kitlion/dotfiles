@@ -9,7 +9,11 @@ https://github.com/junegunn/vim-plug
 
 ## How to install
 ### Automate
-Updating...
+```
+git clone https://github.com/kitlion/dotfiles ~/.dotfiles/
+
+~/.dotfiles/bootstrap.sh
+```
 
 ### Manual
 ```
@@ -18,6 +22,7 @@ git clone https://github.com/kitlion/dotfiles ~/.dotfiles/
 echo "[[ -f ~/.dotfiles/.zshrc ]] && source ~/.dotfiles/.zshrc" >> ~/.zshrc
 
 source ~/.zshrc
+※ Follow instrction
 ```
 
 ## Others
