@@ -69,15 +69,24 @@ install_ohmyzsh_conf()
 {
     if [[ -f ~/.zshrc ]]; then
         send_message "Start settings configurations for Oh-My-Zsh..."
-        CONFIG="[[ -f ~/.dotfiles/.zshrc ]] && source ~/.dotfiles/.zshrc"
-        if (( ! $(cat ~/.bashrc | grep "$CONFIG" | wc -l) > 0 ))
-        then
-            echo $CONFIG >> ~/.zshrc
-            # source ~/.zshrc
-            send_message "Configurations installed successfully."
-        else
-            send_message "Configurations already exists."
-        fi
+        CONFIG_LIST= (
+            "[[ -f ~/.dotfiles/.zshrc ]] && source ~/.dotfiles/.zshrc"
+            "ZSH_THEME=\"bullet-train\""
+            "ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=22'"
+        )
+        i=0
+        while [ "${CONFIG_LIST[i]}" != "" ]; do
+            CONFIG=${CONFIG_LIST[i]}
+            if (( ! $(cat ~/.zshrc | grep "$CONFIG" | wc -l) > 0 ))
+            then
+                echo $CONFIG >> ~/.zshrc
+            fi
+            i=$((i+1))
+        done
+        send_message "Configurations installed successfully."
+        # Plugins
+        plugins="git rsync zsh-autosuggestions zsh_reload"
+        sed -i -e "s/plugins=(.*)/plugins=($plugins)/g" ~/.zshrc
         sleep 2
     fi
     cp ~/.dotfiles/zsh/custom/themes/bullet-train.zsh-theme ~/.oh-my-zsh/custom/themes/
