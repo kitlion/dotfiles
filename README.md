@@ -1,6 +1,6 @@
 # My Favorite dotfiles
 
-## What will be install? 
+## What will be install?
 https://ohmyz.sh/
 
 https://github.com/zsh-users/zsh-autosuggestions
@@ -26,6 +26,10 @@ Final step
 source .zshrc
 ```
 
+## Update
+```
+dot-update
+```
 
 ## Others
 If display as not expect, install these fonts
@@ -35,5 +39,5 @@ https://github.com/powerline/fonts
 Follow instruction on GitHub
 
 ### On Windows
-Install one of those font and set that font for your Terminal. 
+Install one of those font and set that font for your Terminal.
 Refer __Noto Mono__

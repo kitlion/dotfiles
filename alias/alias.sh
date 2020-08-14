@@ -34,4 +34,5 @@ skip() {  git update-index --skip-worktree "$@";  git status; }
 unskip() {  git update-index --no-skip-worktree "$@";  git status; }
 
 
+alias dot-update="~/.dotfiles/bootstrap.sh true"
 #alias debug="echo 1"

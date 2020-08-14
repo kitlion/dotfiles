@@ -3,6 +3,8 @@
 DF=$(dirname `which $0`)
 VIM_FILE="/.vimrc"
 VIM_CONFIG=$HOME$VIM_FILE
+ZSH_FILE="/.zshrc"
+ZSH_FILE_LOCAL=$HOME"/.zshrc.local"
 
 progress()
 {
@@ -24,7 +26,6 @@ progress()
 send_message()
 {
     local message="Working..."
-    # clear
     if [ "$1" != "" ]; then
         message=$1
     fi
@@ -59,6 +60,8 @@ install_ohmyzsh() {
     else
         send_message "Zsh are installed already."
     fi
+    sleep 2
+    clear
     if [[ ! -d ~/.oh-my-zsh ]]; then
         send_message "Start installing Oh-My-Zsh..."
         $(which bash) -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
@@ -68,11 +71,16 @@ install_ohmyzsh() {
 install_ohmyzsh_conf()
 {
     if [[ -f ~/.zshrc ]]; then
+        # if [[ -L "$ZSH_FILE_LOCAL" ]]; then # Symbolic link
+        #     unlink $ZSH_FILE_LOCAL
+        #     ln -s ${DF}$ZSH_FILE $ZSH_FILE_LOCAL
+        # else
+        #     ln -s ${DF}$ZSH_FILE $ZSH_FILE_LOCAL
+        # fi
         # Configurations
         send_message "Start settings configurations for Oh-My-Zsh..."
         CONFIG_LIST=(
             "[[ -f ~/.dotfiles/.zshrc ]] && source ~/.dotfiles/.zshrc"
-            "ZSH_THEME=\"bullet-train\""
             "ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=22'"
         )
         i=0
@@ -84,11 +92,15 @@ install_ohmyzsh_conf()
             fi
             i=$((i+1))
         done
+        # Change theme
+        sed -i -e "s/ZSH_THEME=\".*\"/ZSH_THEME=\"bullet-train\"/g" ~/.zshrc
         send_message "Configurations installed successfully."
 
         # Plugins
         send_message "Install additional plugins..."
-        git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+        if [[ ! -d ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions ]]; then
+            git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+        fi
 
         send_message "Updating plugins list..."
         plugins="git rsync zsh-autosuggestions zsh_reload"
@@ -147,17 +159,20 @@ all_vim()
 
 all()
 {
-    change_shell
     all_ohmyzsh
     all_vim
 }
 
-# change_shell
-# install_ohmyzsh
-# install_vim_plug
-# vim_folder
-# install_ohmyzsh_conf
-# install_vim_conf
+isUpdate=$1
+if [[ $isUpdate == "true" ]]; then
+    cd ~/.dotfiles/
+    git pull origin master
+    all
+    clear
+    send_message "Updated successfully!"
+    sleep 2
+    exit
+fi
 
 # Main Menu
 clear
