@@ -1,6 +1,5 @@
 # My favorite alias
 
-alias top='top -M'
 #alias ..='cd ..'
 alias a='alias'
 alias c='clear'
