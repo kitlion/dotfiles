@@ -3,7 +3,6 @@
 #alias ..='cd ..'
 alias a='alias'
 alias c='clear'
-alias e='exit'
 alias hc='history -c'
 alias l='clear; ls -la --color'
 alias o='ssh'
@@ -11,7 +10,6 @@ alias o='ssh'
 # Application alias
 alias v='less'
 alias vi='vim'
-alias via='vim ~/my-alias/alias.sh'
 alias pf='vi ~/.zshrc'
 alias pfb='vi ~/.bashrc'
 alias rlb='. ~/.bashrc; echo ".bashrc reloaded!"'
@@ -35,4 +33,5 @@ unskip() {  git update-index --no-skip-worktree "$@";  git status; }
 
 alias dot-update="~/.dotfiles/bootstrap.sh true"
 alias dot-menu="~/.dotfiles/bootstrap.sh"
+alias dot-uninstall="~/.dotfiles/uninstall.sh"
 #alias debug="echo 1"
