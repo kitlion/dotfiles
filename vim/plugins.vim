@@ -9,6 +9,7 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'tpope/vim-eunuch'
 Plug 'tpope/vim-surround'
+Plug 'airblade/vim-gitgutter'
 
 " Front-End
 Plug 'mattn/emmet-vim'
