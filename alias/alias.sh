@@ -7,6 +7,7 @@ alias hc='history -c'
 alias l='clear; ls -la --color'
 alias o='ssh'
 alias cron='vim /var/spool/cron/root'
+alias reload='service httpd reload && service smb restart'
 
 # Application alias
 alias v='less'
