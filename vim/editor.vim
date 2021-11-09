@@ -43,7 +43,7 @@ syntax on
 " Highlight current line
 set cursorline
 " Format Text indent
-set autoindent    " Copy indent from current line when starting a new line (ai).
+" set autoindent    " Copy indent from current line when starting a new line (ai).
 set smarttab      " Inserts blanks on a <Tab> key (as per sw, ts and sts).
 function! UseTabs()
   set tabstop=4     " Size of a hard tabstop (ts).
