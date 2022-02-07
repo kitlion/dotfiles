@@ -106,7 +106,7 @@ install_ohmyzsh_conf()
         fi
 
         send_message "Updating plugins list..."
-        plugins="git rsync zsh-autosuggestions zsh-syntax-highlighting zsh_reload"
+        plugins="git rsync zsh-autosuggestions zsh-syntax-highlighting"
         sed -i -e "s/plugins=(.*)/plugins=($plugins)/g" ~/.zshrc
         send_message "Finished updating plugins list."
         sleep 2
