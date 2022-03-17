@@ -37,3 +37,5 @@ alias dot-update="~/.dotfiles/bootstrap.sh true"
 alias dot-menu="~/.dotfiles/bootstrap.sh"
 alias dot-uninstall="~/.dotfiles/uninstall.sh"
 #alias debug="echo 1"
+
+alias php-clear="php artisan config:clear && php artisan cache:clear"
