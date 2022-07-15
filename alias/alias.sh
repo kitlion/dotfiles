@@ -19,12 +19,14 @@ alias rlb='. ~/.bashrc; echo ".bashrc reloaded!"'
 
 # Goto
 alias ch='cd /etc/httpd/vhosts'
+alias ch2='cd /etc/httpd/vhosts2'
 alias vh='cd /var/www/vhosts'
+alias vh2='cd /var/www/vhosts2'
 alias html='cd /var/www/html'
 
 # Quick functions
-alias remote='~/change_git_remote'
-alias vhosts='~/vhosts.bash'
+alias remote='~/remote'
+alias vhosts='~/vhosts'
 
 # checks for any files flagged w/ --skip-worktree alias
 alias check="git ls-files -v | grep '^S'"
