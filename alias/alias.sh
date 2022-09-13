@@ -27,6 +27,7 @@ alias html='cd /var/www/html'
 # Quick functions
 alias remote='~/remote'
 alias vhosts='~/vhosts'
+alias mrs='rsync -avz --progress --exclude={"node_modules","vendor"}'
 
 # checks for any files flagged w/ --skip-worktree alias
 alias check="git ls-files -v | grep '^S'"
