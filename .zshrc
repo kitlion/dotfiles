@@ -14,3 +14,6 @@ if [[ $ZSH_THEME == "bullet-train" ]]; then
     BULLETTRAIN_PROMPT_ORDER=(time context status dir git)
 fi
 
+# fix bug git_prompt_info: character not in range
+export LANG=en_US.UTF-8
+export LC_ALL=en_US.UTF-8
