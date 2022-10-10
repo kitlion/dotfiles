@@ -40,7 +40,7 @@ Follow instruction on GitHub
 
 ### On Windows
 Install one of those font and set that font for your Terminal.
-Refer __Noto Mono__
+Refer __Roboto Mono for Powerline__
 
 After installed font, update your prefer terminal use new font family
 
