@@ -23,7 +23,7 @@ alias ch2='cd /etc/httpd/vhosts2'
 alias vh='cd /var/www/vhosts'
 alias vh2='cd /var/www/vhosts2'
 alias html='cd /var/www/html'
-alias do='cd ~/docker/'
+alias mdo='cd ~/docker/'
 
 # Quick functions
 alias remote='~/remote'
