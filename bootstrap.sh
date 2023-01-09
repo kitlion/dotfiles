@@ -34,15 +34,25 @@ send_message()
 }
 
 # Change default SHELL
-change_shell()
+install_zsh()
 {
     if [[ ! $(grep /zsh$ /etc/shells) ]]; then
         send_message "Start installing Zsh."
-        yum install -y zsh
+        OS_INFO=`awk -F '=' '/PRETTY_NAME/ { print $2 }' /etc/os-release`
+        if grep -q "Ubuntu" <<< "$OS_INFO"; then
+            sudo apt-get install -y zsh
+        else
+            yum install -y zsh
+        fi
         send_message "Zsh installed successfully"
     else
         send_message "Zsh are installed already."
     fi
+}
+
+change_shell()
+{
+    install_zsh
     if [[ $SHELL != $(which zsh) ]]; then
         chsh -s $(which zsh) $(whoami)
         send_message "Zsh is default shell now. Exit and open your terminal again."
@@ -53,13 +63,7 @@ change_shell()
 }
 
 install_ohmyzsh() {
-    if [[ ! $(grep /zsh$ /etc/shells) ]]; then
-        send_message "Start installing Zsh..."
-        yum install -y zsh
-        send_message "Zsh installed successfully."
-    else
-        send_message "Zsh are installed already."
-    fi
+    install_zsh
     sleep 2
     clear
     if [[ ! -d ~/.oh-my-zsh ]]; then
