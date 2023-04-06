@@ -151,6 +151,15 @@ install_vim_plug()
     $(which vim) -u ~/.vimrc -i NONE -c "PlugInstall" -c "qa"
 }
 
+install_fonts()
+{
+    FONT_DIR="$HOME/fonts"
+    git clone https://github.com/powerline/fonts.git --depth=1 $FONT_DIR
+    cd $FONT_DIR
+    ./install.sh
+    rm -rf $FONT_DIR
+}
+
 all_ohmyzsh()
 {
     install_ohmyzsh
@@ -190,7 +199,8 @@ until [ "$selection" = "0" ]; do
     1 - Install OhMyZsh
     2 - Install OhMyZsh Configs
     3 - Install Vim Plug
-    4 - Install All In One
+    4 - Install Powerline Fonts
+    5 - Install All In One
 
     0 - exit program
 "
@@ -201,7 +211,8 @@ until [ "$selection" = "0" ]; do
         1 ) clear; install_ohmyzsh ;;
         2 ) clear; install_ohmyzsh_conf ;;
         3 ) clear; all_vim ;;
-        4 ) clear; all ;;
+        4 ) clear; install_fonts ;;
+        5 ) clear; all ;;
         0 ) exit ;;
         * ) clear; echo "Please enter 1, 2, 3, 4 or 0"
     esac

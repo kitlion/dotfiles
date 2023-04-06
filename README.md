@@ -13,13 +13,13 @@ git clone https://github.com/kitlion/dotfiles ~/.dotfiles/
 
 ~/.dotfiles/bootstrap.sh
 ```
-Choose 1 -> Wait until complted -> After install completed, press ```Ctrl D``` to Exit
+Choose 1 -> Wait until completed -> After install completed, press ```Ctrl D``` to Exit
 
 Run again
 ```
 ~/.dotfiles/bootstrap.sh
 ```
-Choose 2 and then 3, and 0 to Exit
+Choose 2, 3 and then 4, and 0 to Exit
 
 Final step
 ```
