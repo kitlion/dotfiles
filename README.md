@@ -7,6 +7,8 @@ https://github.com/zsh-users/zsh-autosuggestions
 
 https://github.com/junegunn/vim-plug
 
+https://github.com/powerline/fonts
+
 ## How to install
 ```
 git clone https://github.com/kitlion/dotfiles ~/.dotfiles/
@@ -31,9 +33,7 @@ source .zshrc
 dot-update
 ```
 
-## Fonts
-If display as not expect, install these fonts
-https://github.com/powerline/fonts
+## Setting font for your favorite Terminal
 
 ### On Mac, Linux
 Follow instruction on GitHub
