@@ -26,6 +26,7 @@ alias html='cd /var/www/html'
 alias mdo='cd ~/docker/'
 
 # Quick functions
+alias cba-ssl='~/cba-ssl'
 alias remote='~/remote'
 alias vhosts='~/vhosts'
 alias mrs='rsync -avz --progress --exclude={"node_modules","vendor"}'
