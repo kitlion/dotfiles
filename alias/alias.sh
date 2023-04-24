@@ -29,6 +29,7 @@ alias mdo='cd ~/docker/'
 alias cba-ssl='~/cba-ssl'
 alias remote='~/remote'
 alias vhosts='~/vhosts'
+alias mfpm='bash /data/php-autostart/restart.sh'
 alias mrs='rsync -avz --progress --exclude={"node_modules","vendor"}'
 
 # checks for any files flagged w/ --skip-worktree alias
