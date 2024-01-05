@@ -31,6 +31,7 @@ alias remote='~/remote'
 alias vhosts='~/vhosts'
 alias mfpm='bash /data/php-autostart/restart.sh'
 alias mrs='rsync -avz --progress --exclude={"node_modules","vendor"}'
+alias mdns='networksetup -setnetworkserviceenabled Ethernet off; networksetup -setnetworkserviceenabled Ethernet on'
 
 # checks for any files flagged w/ --skip-worktree alias
 alias check="git ls-files -v | grep '^S'"
