@@ -4,6 +4,8 @@
 # My Alias
 [[ -f ~/.dotfiles/alias/alias.sh ]] && source ~/.dotfiles/alias/alias.sh
 
+export SPACESHIP_CONFIG="$HOME/.dotfiles/zsh/spaceship.zsh"
+
 # Customize PROMPT
 if [[ $ZSH_THEME == "robbyrussell" ]]; then
     PROMPT="%(?:%{$fg_bold[green]%}➜ :%{$fg_bold[red]%}➜ )$(whoami)@$(hostname -f)"
