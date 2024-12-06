@@ -1,10 +1,9 @@
-# Add this line into ~/.zshrc
+# Add these lines into ~/.zshrc
 # [[ -f ~/.dotfiles/.zshrc ]] && source ~/.dotfiles/.zshrc
+# export SPACESHIP_CONFIG="$HOME/.dotfiles/zsh/spaceship.zsh"
 
 # My Alias
 [[ -f ~/.dotfiles/alias/alias.sh ]] && source ~/.dotfiles/alias/alias.sh
-
-export SPACESHIP_CONFIG="$HOME/.dotfiles/zsh/spaceship.zsh"
 
 # Customize PROMPT
 if [[ $ZSH_THEME == "robbyrussell" ]]; then
