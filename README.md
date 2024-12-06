@@ -9,6 +9,8 @@ https://github.com/junegunn/vim-plug
 
 https://github.com/powerline/fonts
 
+https://spaceship-prompt.sh/
+
 ## How to install
 ```
 git clone https://github.com/kitlion/dotfiles ~/.dotfiles/
