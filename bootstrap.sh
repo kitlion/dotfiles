@@ -86,7 +86,6 @@ install_ohmyzsh_conf()
         CONFIG_LIST=(
             "[[ -f ~/.dotfiles/.zshrc ]] && source ~/.dotfiles/.zshrc"
             "ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=22'"
-            "export SPACESHIP_CONFIG=\"$HOME/.dotfiles/zsh/spaceship.zsh\""
         )
         i=0
         while [ "${CONFIG_LIST[i]}" != "" ]; do
@@ -110,8 +109,10 @@ install_ohmyzsh_conf()
             git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
         fi
 
+        # Install & config spaceship-prompt
         git clone https://github.com/spaceship-prompt/spaceship-prompt.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/themes/spaceship-prompt --depth=1
         ln -s ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/themes/spaceship-prompt/spaceship.zsh-theme ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/themes/spaceship.zsh-theme
+        ln -s ~/.dotfiles/zsh/spaceship.zsh $HOME/.config/spaceship.zsh
 
         send_message "Updating plugins list..."
         plugins="git rsync zsh-autosuggestions zsh-syntax-highlighting"
