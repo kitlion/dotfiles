@@ -16,7 +16,7 @@ alias v='less'
 alias vi='vim'
 alias pf='vi ~/.zshrc'
 alias pfb='vi ~/.bashrc'
-alias rlb='. ~/.bashrc; echo ".bashrc reloaded!"'
+alias rlb='source ~/.bashrc; source ~/.zshrc; echo "Reloaded bashrc and zshrc"'
 
 # Goto
 alias ch='cd /etc/httpd/vhosts'
