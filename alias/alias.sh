@@ -34,6 +34,7 @@ alias mfpm='bash /data/php-autostart/restart.sh'
 alias mrs='rsync -avz --progress --exclude={"node_modules","vendor"}'
 alias mdns='networksetup -setnetworkserviceenabled Ethernet off; networksetup -setnetworkserviceenabled Ethernet on'
 
+# Git alias
 # checks for any files flagged w/ --skip-worktree alias
 alias check="git ls-files -v | grep '^S'"
 # add --skip-worktree flag to file
@@ -41,7 +42,7 @@ skip() {  git update-index --skip-worktree "$@";  git status; }
 # remove --skip-worktree flag from file
 unskip() {  git update-index --no-skip-worktree "$@";  git status; }
 
-# Docker make alias
+# Docker makefile alias
 mssh() { if [[ $@ == "" ]]; then make bash; else make bash1 n="$@"; fi }
 mreup() { if [[ $@ == "" ]]; then make reup; else make reup1 n="$@"; fi }
 mdown() { if [[ $@ == "" ]]; then make down; else make down1 n="$@"; fi }
