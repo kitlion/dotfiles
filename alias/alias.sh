@@ -46,7 +46,7 @@ mssh() { if [[ $@ == "" ]]; then make bash; else; make bash1 n="$@"; fi }
 mreup() { if [[ $@ == "" ]]; then make reup; else; make reup1 n="$@"; fi }
 mdown() { if [[ $@ == "" ]]; then make down; else; make down1 n="$@"; fi }
 
-alias dot-update="~/.dotfiles/bootstrap.sh true"
+alias dot-update="~/.dotfiles/bootstrap.sh true && source ~/.zshrc && source ~/.bashrc"
 alias dot-menu="~/.dotfiles/bootstrap.sh"
 alias dot-uninstall="~/.dotfiles/uninstall.sh"
 #alias debug="echo 1"
