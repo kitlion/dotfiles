@@ -45,9 +45,9 @@ skip() {  git update-index --skip-worktree "$@";  git status; }
 unskip() {  git update-index --no-skip-worktree "$@";  git status; }
 
 # Docker makefile alias
-mssh() { if [[ $@ == "" ]]; then make bash; else make bash n="$@"; fi }
-mreup() { if [[ $@ == "" ]]; then make reup; else make reup n="$@"; fi }
-mdown() { if [[ $@ == "" ]]; then make down; else make down n="$@"; fi }
+mssh() { cd ~/docker/ && if [[ $@ == "" ]]; then make bash; else make bash n="$@"; fi }
+mreup() { cd ~/docker/ && if [[ $@ == "" ]]; then make reup; else make reup n="$@"; fi }
+mdown() { cd ~/docker/ && if [[ $@ == "" ]]; then make down; else make down n="$@"; fi }
 
 alias dot-update="~/.dotfiles/bootstrap.sh true && source ~/.zshrc"
 alias dot-menu="~/.dotfiles/bootstrap.sh"
