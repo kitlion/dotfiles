@@ -30,8 +30,8 @@ alias mdo='cd ~/docker/'
 alias cba-ssl='~/cba-ssl'
 alias remote='~/remote'
 alias vhosts='~/vhosts'
-alias mfpm='bash /data/php-autostart/restart.sh'
-alias mrs='rsync -avz --progress --exclude={"node_modules","vendor"}'
+alias mrs='rsync -avzP'
+alias mrss='rsync -avzP --exclude={"node_modules","vendor"}'
 alias mdns='networksetup -setnetworkserviceenabled Ethernet off; networksetup -setnetworkserviceenabled Ethernet on'
 mdu() { if [[ $@ == "" ]]; then du -sh ./*; else du -sh $@; fi }
 mdot() { rsync -avz --progress /data/vhosts/my-dotfiles/ ~/.dotfiles/ && source ~/.zshrc; }
