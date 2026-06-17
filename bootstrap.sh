@@ -97,7 +97,7 @@ install_ohmyzsh_conf()
             i=$((i+1))
         done
         # Change theme
-        sed -i -e "s/ZSH_THEME=\".*\"/ZSH_THEME=\"bullet-train\"/g" ~/.zshrc
+        sed -i -e "s/ZSH_THEME=\".*\"/ZSH_THEME=\"spaceship\"/g" ~/.zshrc
         send_message "Configurations installed successfully."
 
         # Plugins
