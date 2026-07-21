@@ -45,7 +45,7 @@ skip() {  git update-index --skip-worktree "$@";  git status; }
 unskip() {  git update-index --no-skip-worktree "$@";  git status; }
 
 # Docker makefile alias
-alias dss='docker ps --format "table {{.Names}}\t{{.Status}}"'
+alias dss='docker ps --format "table {{.ID}} : {{.Names}}\t{{.Status}}"'
 mssh() { cd ~/docker/ && if [[ $@ == "" ]]; then make bash; else make bash n="$@"; fi }
 mgssh() { if [[ $@ == "" ]]; then echo "Please specify CONTAINER ID"; else make gbash n="$@"; fi }
 mreup() { cd ~/docker/ && if [[ $@ == "" ]]; then make reup; else make reup n="$@"; fi }
