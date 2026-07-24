@@ -45,12 +45,12 @@ skip() {  git update-index --skip-worktree "$@";  git status; }
 unskip() {  git update-index --no-skip-worktree "$@";  git status; }
 
 # Docker makefile alias
-alias dst="docker stats"
+alias dst='docker stats'
 dss() {
     if [[ $@ == "" ]]; then
-        docker ps --format "table {{.ID}} : {{.Names}}\t{{.Status}}";
+        docker ps --format "table {{.ID}} : {{.Names}}\t{{.Status}}"
     else
-        docker ps --format "table {{.ID}} : {{.Names}}\t{{.Status}}\t{{.Ports}}";
+        docker ps --format "table {{.ID}} : {{.Names}}\t{{.Status}}\t{{.Ports}}"
     fi
 }
 dlog() { if [[ $@ == "" ]]; then echo "Please specify CONTAINER ID | CONTAINER NAME"; else docker logs -f "$@"; fi }
