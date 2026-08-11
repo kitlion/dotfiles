@@ -30,8 +30,8 @@ alias mdo='cd ~/docker/'
 alias cba-ssl='~/cba-ssl'
 alias remote='~/remote'
 alias vhosts='~/vhosts'
-alias mrs='rsync -avzP'
-alias mrss='rsync -avzP --exclude={"node_modules","vendor"}'
+# alias mrs='rsync -avzP'
+# alias mrss='rsync -avzP --exclude={"node_modules","vendor"}'
 alias mdns='networksetup -setnetworkserviceenabled Ethernet off; networksetup -setnetworkserviceenabled Ethernet on'
 mdu() { if [[ $@ == "" ]]; then du -sh ./*; else du -sh $@; fi }
 mdot() { rsync -avz --progress /data/vhosts/my-dotfiles/ ~/.dotfiles/ && source ~/.zshrc; }
@@ -54,6 +54,7 @@ mgssh() { if [[ $@ == "" ]]; then echo "Please specify CONTAINER ID | CONTAINER 
 mgsh() { if [[ $@ == "" ]]; then echo "Please specify CONTAINER ID | CONTAINER NAME"; else docker exec -it "$@" sh; fi }
 mreup() { cd ~/docker/ && if [[ $@ == "" ]]; then make reup; else make reup n="$@"; fi }
 mdown() { cd ~/docker/ && if [[ $@ == "" ]]; then make down; else make down n="$@"; fi }
+mrs() { cd ~/docker/ && if [[ $@ == "" ]]; then echo "Please specify CONTAINER ID | CONTAINER NAME"; else make rs n="$@"; fi }
 
 alias dot-update="~/.dotfiles/bootstrap.sh true && source ~/.zshrc"
 alias dot-menu="~/.dotfiles/bootstrap.sh"
