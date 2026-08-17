@@ -16,23 +16,19 @@ alias v='less'
 alias vi='vim'
 alias pf='vi ~/.zshrc'
 alias pfb='vi ~/.bashrc'
-alias rlpf='source ~/.zshrc; echo "Reloaded .zshrc"'
+alias rlpf='source ~/.bashrc; source ~/.zshrc; echo "Reloaded .bashrc/.zshrc."'
 
 # Goto
 alias ch='cd /etc/httpd/vhosts'
 alias ch2='cd /etc/httpd/vhosts2'
 alias vh='cd /var/www/vhosts'
 alias vh2='cd /var/www/vhosts2'
-alias html='cd /var/www/html'
 alias mdo='cd ~/docker/'
+alias mvh='cd ~/vhosts/'
 
 # Quick functions
-alias cba-ssl='~/cba-ssl'
-alias remote='~/remote'
-alias vhosts='~/vhosts'
 alias mdns='networksetup -setnetworkserviceenabled Ethernet off; networksetup -setnetworkserviceenabled Ethernet on'
 mdu() { if [[ $@ == "" ]]; then du -sh ./*; else du -sh $@; fi }
-mdot() { rsync -avz --progress /data/vhosts/my-dotfiles/ ~/.dotfiles/ && source ~/.zshrc; }
 
 # Git alias
 # checks for any files flagged w/ --skip-worktree alias
