@@ -25,6 +25,7 @@ alias vh='cd /var/www/vhosts'
 alias vh2='cd /var/www/vhosts2'
 alias mdo='cd ~/docker/'
 alias mvh='cd ~/vhosts/'
+alias mdf='df -h'
 
 # Quick functions
 alias mdns='networksetup -setnetworkserviceenabled Ethernet off; networksetup -setnetworkserviceenabled Ethernet on'
