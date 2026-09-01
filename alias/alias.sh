@@ -16,9 +16,12 @@ alias v='less'
 alias vi='vim'
 alias pf='vi ~/.zshrc'
 alias pfb='vi ~/.bashrc'
-alias rlpf='source ~/.bashrc; source ~/.zshrc; echo "Reloaded .bashrc/.zshrc."'
+alias rlz='source ~/.zshrc; echo "Reloaded .zshrc."'
+alias rlb='source ~/.bashrc; echo "Reloaded .bashrc."'
 
 # Goto
+alias gdf='cd ~/.dotfiles'
+alias gdk='cd ~/docker'
 alias ch='cd /etc/httpd/vhosts'
 alias ch2='cd /etc/httpd/vhosts2'
 alias vh='cd /var/www/vhosts'
@@ -29,6 +32,7 @@ alias mdf='df -h'
 alias mf='free -m'
 
 # Quick functions
+alias msm="bash ~/my-shell/server-maintenance.sh"
 alias mdns='networksetup -setnetworkserviceenabled Ethernet off; networksetup -setnetworkserviceenabled Ethernet on'
 mdu() { if [[ $@ == "" ]]; then du -sh ./*; else du -sh $@; fi }
 
