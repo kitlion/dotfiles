@@ -55,6 +55,19 @@ mgsh() { if [[ $@ == "" ]]; then echo "Please specify CONTAINER ID | CONTAINER N
 mreup() { cd ~/docker/ && if [[ $@ == "" ]]; then make reup; else make reup n="$@"; fi }
 mdown() { cd ~/docker/ && if [[ $@ == "" ]]; then make down; else make down n="$@"; fi }
 mrs() { cd ~/docker/ && if [[ $@ == "" ]]; then echo "Please specify CONTAINER ID | CONTAINER NAME"; else make rs n="$@"; fi }
+mclean() {
+	if [[ $@ == "" ]]; then
+		echo "Dry-run: the following files would be deleted:"
+		find . -regextype posix-extended \
+			-type f -regex '.*/(\._.*|\.~.*|\~\$.*|\.DS_Store|Thumbs\.db|.*\.tmp)$' \
+			-print
+	else
+		find . -regextype posix-extended \
+			-type f -regex '.*/(._.*|\.~.*|\~\$.*|\.DS_Store|Thumbs\.db|.*\.tmp)$' \
+			-delete
+		echo "Cleaned up temporary and unwanted files."
+	fi
+}
 
 alias dot-update="~/.dotfiles/bootstrap.sh true && source ~/.zshrc"
 alias dot-menu="~/.dotfiles/bootstrap.sh"
