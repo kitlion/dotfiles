@@ -64,7 +64,7 @@ mclean() {
 	else
 		find . -regextype posix-extended \
 			-type f -regex '.*/(._.*|\.~.*|\~\$.*|\.DS_Store|Thumbs\.db|.*\.tmp)$' \
-			-delete
+			-delete -print
 		echo "Cleaned up temporary and unwanted files."
 	fi
 }
